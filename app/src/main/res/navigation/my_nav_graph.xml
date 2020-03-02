@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav_graph"
+    app:startDestination="@id/text_searchFragment">
+
+    <fragment
+        android:id="@+id/text_searchFragment"
+        android:name="lht.trash.text_searchFragment"
+        android:label="fragment_text_search"
+        tools:layout="@layout/fragment_text_search" >
+        <action
+            android:id="@+id/action_text_searchFragment_to_voice_searchFragment"
+            app:destination="@id/voice_searchFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/voice_searchFragment"
+        android:name="lht.trash.voice_searchFragment"
+        android:label="fragment_voice_search"
+        tools:layout="@layout/fragment_voice_search" >
+        <action
+            android:id="@+id/action_voice_searchFragment_to_text_searchFragment"
+            app:destination="@id/text_searchFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+</navigation>

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">trash_classify</string>
+    <string name="app_version">0.01 beta</string>
+    <string name="button_login">登录</string>
+    <string name="user_name_hint">请输入账号</string>
+    <string name="password_hint">请输入密码</string>
+    <string name="icon">图标</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_hint">输入需要查询的蹲洗</string>
+    <string name="button_text_search">查询</string>
+    <string name="button_voice_search">说话</string>
+    <string name="text_result">结果</string>
+    <string name="voice_result">结果</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="switch_to_voice">切换到语音查询</string>
+    <string name="switch_to_text">切换到输入查询</string>
+</resources>
