@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/text_searchFragment"
+        android:icon="@drawable/ic_text_fields_black_24dp"
+        android:title="@string/text_fragment" />
+    <item
+        android:id="@+id/voice_searchFragment"
+        android:icon="@drawable/ic_mic_none_black_24dp"
+        android:title="@string/voice_fragment" />
+    <item
+        android:id="@+id/pic_searchFragment"
+        android:icon="@drawable/ic_videocam_black_24dp"
+        android:title="@string/pic_fragment" />
+</menu>

@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     //要使用viewmodel首先声明一个对象
-    MyViewModel myViewModel;
+    //MyViewModel myViewModel;
     Button bt_login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //创建viewmodel对象
-        myViewModel= ViewModelProviders.of(this).get(MyViewModel.class);
+        //myViewModel= ViewModelProviders.of(this).get(MyViewModel.class);
 
         bt_login=findViewById(R.id.bt_login);
         bt_login.setOnClickListener(new View.OnClickListener(){

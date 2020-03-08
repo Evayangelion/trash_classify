@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.room.Room;
-import androidx.room.RoomDatabase;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.List;
+import android.widget.Toast;
 
 
 /**
@@ -73,18 +71,28 @@ public class text_searchFragment extends Fragment {
                 String search=searchContent.getText().toString();
 
                 GarbageData result = garbageDataDao.searchGarbage(search);
-                String catg="";
-                switch (result.getCategory()){
-                    case "1":catg+="可回收垃圾";break;
-                    case "2":catg+="有害垃圾";break;
-                    case "4":catg+="湿垃圾";break;
-                    case "8":catg+="干垃圾";break;
-                    case "16":catg+="大件垃圾";break;
+                try{
 
+                    String catg="";
+                    switch (result.getCategory()){
+                        case "1":catg+="可回收垃圾";break;
+                        case "2":catg+="有害垃圾";break;
+                        case "4":catg+="湿垃圾";break;
+                        case "8":catg+="干垃圾";break;
+                        case "16":catg+="大件垃圾";break;
+                    }
+                    String showResult=result.getId()+":"+result.getStuff()+"属于"+catg;
+                    textView.setText(showResult);
+                }catch (Exception e){
+                    Toast.makeText(getActivity(),"没有这种垃圾",Toast.LENGTH_SHORT).show();
+                    //String showResult="这东西不用回收，扔了吧";
+                    //textView.setText(showResult);
                 }
 
-                String showResult=result.getId()+":"+result.getStuff()+"属于"+catg;
-                textView.setText(showResult);
+
+
+
+
 
                 //garbageDataDao.getALL();
                 //updateView();
@@ -92,24 +100,18 @@ public class text_searchFragment extends Fragment {
         });
 
         //切换fragment的工作
-        Button bt_toVoice;
-        bt_toVoice=getView().findViewById(R.id.bt_to_voice);
+        /*Button bt_toVoice;
+        bt_toVoice=getView().findViewById(R.id.bt_text_to_voice);
         bt_toVoice.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 NavController controller = Navigation.findNavController(view);
+                //查找action的id
                 controller.navigate(R.id.action_text_searchFragment_to_voice_searchFragment);
             }
         });
+        getView().findViewById(R.id.bt_text_to_pic).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_text_searchFragment_to_pic_searchFragment));
+*/
     }
-    //用来刷新textview
-    void updateView(){
-        List<GarbageData> list=garbageDataDao.getALL();
-        String text="";
-        for(int i=0;i<list.size();i++){
-            GarbageData data=list.get(i);
-            text+=data.getStuff()+"-"+data.getCategory()+"\n";
-        }
-        textView.setText(text);
-    }
+
 }

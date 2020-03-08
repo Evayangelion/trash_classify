@@ -22,6 +22,13 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="switch_to_voice">切换到语音查询</string>
-    <string name="switch_to_text">切换到输入查询</string>
+    <string name="text_to_voice">切换到语音查询</string>
+    <string name="voice_to_text">切换到输入查询</string>
+    <string name="pic_to_text">切换到输入查询</string>
+    <string name="text_to_pic">切换到图片识别</string>
+    <string name="voice_to_pic">切换到图片识别</string>
+    <string name="pic_to_voice">切换到语音查询</string>
+    <string name="text_fragment">文本查询</string>
+    <string name="voice_fragment">语音查询</string>
+    <string name="pic_fragment">视频识别</string>
 </resources>
