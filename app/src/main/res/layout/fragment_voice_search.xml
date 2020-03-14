@@ -31,6 +31,20 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.75" />
 
+        <EditText
+            android:id="@+id/voice_search_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/search_hint"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_result"
+            app:layout_constraintVertical_bias="0.478" />
+
         <Button
             android:id="@+id/bt_speak"
             android:layout_width="wrap_content"
@@ -42,7 +56,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/text_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/voice_result"
