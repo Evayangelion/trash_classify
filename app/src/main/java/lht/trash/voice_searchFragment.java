@@ -1,15 +1,9 @@
 package lht.trash;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 import androidx.room.Room;
 
 import android.util.Log;
@@ -25,9 +19,6 @@ import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SpeechRecognizer;
-import com.iflytek.cloud.SpeechSynthesizer;
-import com.iflytek.cloud.SpeechUtility;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.ui.RecognizerDialog;
@@ -36,12 +27,14 @@ import com.iflytek.cloud.ui.RecognizerDialogListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
+import lht.trash.database.GarbageData;
+import lht.trash.database.GarbageDataDao;
+import lht.trash.database.GarbageDatabase;
+
 import static android.content.ContentValues.TAG;
-import static com.iflytek.cloud.SpeechConstant.TYPE_CLOUD;
 
 /**
  * A simple {@link Fragment} subclass.

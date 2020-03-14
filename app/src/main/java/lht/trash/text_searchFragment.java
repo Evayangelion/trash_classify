@@ -4,8 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.room.Room;
 
 import android.view.LayoutInflater;
@@ -15,6 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import lht.trash.database.GarbageData;
+import lht.trash.database.GarbageDataDao;
+import lht.trash.database.GarbageDatabase;
 
 
 /**
@@ -50,7 +52,7 @@ public class text_searchFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         //数据库操作
-        garbageDatabase = Room.databaseBuilder(this.getContext(),GarbageDatabase.class,"garbage_database")
+        garbageDatabase = Room.databaseBuilder(this.getContext(), GarbageDatabase.class,"garbage_database")
                 .allowMainThreadQueries()
                 .build();
         garbageDataDao=garbageDatabase.getGarbageDataDao();

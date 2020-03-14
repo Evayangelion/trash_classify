@@ -1,4 +1,4 @@
-package lht.trash;
+package lht.trash.database;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;

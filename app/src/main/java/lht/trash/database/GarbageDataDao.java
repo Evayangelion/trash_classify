@@ -1,4 +1,4 @@
-package lht.trash;
+package lht.trash.database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
