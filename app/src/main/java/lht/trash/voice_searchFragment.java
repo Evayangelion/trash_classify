@@ -72,7 +72,7 @@ public class voice_searchFragment extends Fragment {
 
         speak=getView().findViewById(R.id.bt_speak);
         resulttext=getView().findViewById(R.id.text_result);
-        voice_search_content=getView().findViewById(R.id.voice_search_content);
+        //voice_search_content=getView().findViewById(R.id.voice_search_content);
 
         //数据库对象初始化
         garbageDatabase = Room.databaseBuilder(this.getContext(),GarbageDatabase.class,"garbage_database")
@@ -145,10 +145,12 @@ public class voice_searchFragment extends Fragment {
                 resultBuffer.append(mIatResults .get(key));
             }
 
-            voice_search_content.setText(resultBuffer.toString());// 设置输入框的文本
+            //voice_search_content.setText(resultBuffer.toString());// 设置输入框的文本
 
             //获取输入框结果
-            String search=voice_search_content.getText().toString();
+            //String search=voice_search_content.getText().toString();
+            //获取语音识别结果
+            String search = resultBuffer.toString();
 
             //从数据库查询
             GarbageData voice_search_result = garbageDataDao.searchGarbage(search);

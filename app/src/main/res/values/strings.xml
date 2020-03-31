@@ -12,7 +12,7 @@
     <string name="button_text_search">查询</string>
     <string name="button_voice_search">说话</string>
     <string name="text_result">结果</string>
-    <string name="voice_result">结果</string>
+    <string name="voice_result">你想知道什么垃圾？</string>
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -31,4 +31,8 @@
     <string name="text_fragment">文本查询</string>
     <string name="voice_fragment">语音查询</string>
     <string name="pic_fragment">视频识别</string>
+    <string name="title_activity_launch">LaunchActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

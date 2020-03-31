@@ -1,16 +1,21 @@
 package lht.trash.database;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Entity
 public class GarbageData {
+    //主键自增
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private int _id;
 
     @ColumnInfo(name="stuff_name")
     private String stuff;
+
     @ColumnInfo(name="stuff_category")
     private String category;
 
@@ -19,12 +24,14 @@ public class GarbageData {
         this.category = category;
     }
 
+
+
     public int getId() {
-        return id;
+        return _id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this._id = id;
     }
 
     public String getStuff() {

@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "lht.trash"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    //限制不要对tensorflow lite的模型进行压缩，压缩之后就无法加载模型了：
+    aaptOptions {
+        noCompress "tflite"
+    }
 
 }
 
@@ -29,6 +33,9 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.android.support:design:29.1.1'
+    implementation 'com.android.support:appcompat-v7:29'
+
     implementation 'androidx.annotation:annotation:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
@@ -38,6 +45,14 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.0.0'
 
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+
+    //tensorflow
+    implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:0.0.0-nightly'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.0.0-nightly'
+    //cameraview
+    implementation 'com.wonderkiln:camerakit:0.13.1'
+
 
     // Use the most recent version of CameraX, currently that is alpha04
     def camerax_version = "1.0.0-alpha04"

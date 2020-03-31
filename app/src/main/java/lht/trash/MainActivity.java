@@ -17,6 +17,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
+    private static final String PERMISSION_STORAGE=Manifest.permission.WRITE_EXTERNAL_STORAGE;
     private static final int PERMISSIONS_REQUEST = 1;
 
     //要使用viewmodel首先声明一个对象
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG)
                         .show();
             }
-            requestPermissions(new String[] {PERMISSION_CAMERA}, PERMISSIONS_REQUEST);
+            requestPermissions(new String[] {PERMISSION_CAMERA,PERMISSION_STORAGE}, PERMISSIONS_REQUEST);
         }
     }
 
