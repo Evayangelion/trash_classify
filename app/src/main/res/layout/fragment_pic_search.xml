@@ -29,6 +29,17 @@
             app:layout_constraintGuide_begin="102dp"
             app:layout_constraintGuide_percent="0.15" />
 
+        <lht.trash.views.AutoFitTextureView
+
+        android:id="@+id/mCamera"
+            android:layout_width="285dp"
+            android:layout_height="400dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pic_result"
+            app:layout_constraintVertical_bias="0.47" />
+
         <com.wonderkiln.camerakit.CameraView
             android:id="@+id/cameraView"
             android:layout_width="300dp"

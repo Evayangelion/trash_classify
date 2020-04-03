@@ -30,7 +30,9 @@ public class funcActivity extends AppCompatActivity {
         String permission[] = {Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.INTERNET,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA
+        };
         ArrayList<String> applyList = new ArrayList<>();
 
         for (String per : permission) {
