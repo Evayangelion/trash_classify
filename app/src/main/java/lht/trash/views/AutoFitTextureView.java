@@ -29,7 +29,7 @@ public class AutoFitTextureView extends TextureView {
      * @param width
      * @param height
      */
-    public void setAspectRation(int width, int height){
+    public void setAspectRatio(int width, int height){
         if (width < 0 || height < 0){
             throw new IllegalArgumentException("width or height can not be negative.");
         }
@@ -58,4 +58,6 @@ public class AutoFitTextureView extends TextureView {
         }
 
     }
+
+
 }
