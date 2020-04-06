@@ -20,9 +20,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    //限制不要对tensorflow lite的模型进行压缩，压缩之后就无法加载模型了：
-    aaptOptions {
-        noCompress "tflite"
+    compileOptions {
+        targetCompatibility = 1.8
+        sourceCompatibility = 1.8
     }
 
 }
