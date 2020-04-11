@@ -125,7 +125,11 @@ public class text_searchFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //String t=adapter.getCursor().getColumnName((int)id);
                 Toast.makeText(getActivity(),"第几个啊到底"+position,Toast.LENGTH_LONG).show();
-                String tap=adapter.getCursor().getString(position);
+                Cursor cur=adapter.getCursor();
+                cur.moveToPosition(position);
+                String tap=cur.getString(cur.getColumnIndex("stuff_name"));
+                Toast.makeText(getActivity(),"这个指向的是"+tap,Toast.LENGTH_LONG).show();
+
                 //Toast.makeText(getActivity(), tap, Toast.LENGTH_SHORT).show();
                 GarbageData result = garbageDataDao.searchGarbage(tap);
                 try{
