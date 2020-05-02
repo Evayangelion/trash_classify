@@ -21,6 +21,7 @@
             android:layout_weight="1"
             android:cacheColorHint="@android:color/background_light"
             android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/text_result"
             app:layout_constraintEnd_toEndOf="@+id/sv"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

@@ -74,6 +74,7 @@ public class text_searchFragment extends Fragment {
                 .build();
         garbageDataDao=garbageDatabase.getGarbageDataDao();
 
+
         //资源绑定
         textView=getView().findViewById(R.id.text_result);
         //searchContent=getView().findViewById(R.id.search_content);
@@ -138,20 +139,22 @@ public class text_searchFragment extends Fragment {
                     switch (result.getCategory()){
                         case "1":catg+="可回收垃圾";break;
                         case "2":catg+="有害垃圾";break;
-                        case "4":catg+="湿垃圾";break;
-                        case "8":catg+="干垃圾";break;
-                        case "16":catg+="大件垃圾";break;
+                        case "4":catg+="厨余垃圾";break;
+                        case "8":catg+="其他垃圾";break;
+                        case "16":catg+="其他垃圾";break;
                     }
                     String showResult=result.getId()+":"+result.getStuff()+"属于"+catg;
                     textView.setText(showResult);
+                    //点击后取消焦点收起键盘
+                    searchView.clearFocus();
+                    searchView.onActionViewCollapsed();
+                    listView.setAdapter(null);
                 }catch (Exception e){
                     //Toast.makeText(getActivity(),"没有这种垃圾",Toast.LENGTH_SHORT).show();
                     //String showResult="这东西不用回收，扔了吧";
                     //textView.setText(showResult);
                 }
-                //点击后取消焦点收起键盘
-                searchView.clearFocus();
-                searchView.onActionViewCollapsed();
+
 
             }
         });

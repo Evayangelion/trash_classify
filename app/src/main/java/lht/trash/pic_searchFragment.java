@@ -271,9 +271,9 @@ public class pic_searchFragment extends Fragment  {
                     switch (result.getCategory()){
                         case "1":catg+="可回收垃圾";break;
                         case "2":catg+="有害垃圾";break;
-                        case "4":catg+="湿垃圾";break;
-                        case "8":catg+="干垃圾";break;
-                        case "16":catg+="大件垃圾";break;
+                        case "4":catg+="厨余垃圾";break;
+                        case "8":catg+="其他垃圾";break;
+                        case "16":catg+="其他垃圾";break;
                     }
                     String showResult=result.getId()+":"+result.getStuff()+"属于"+catg;
                     picResult.setText(showResult);
