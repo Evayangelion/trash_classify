@@ -9,8 +9,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Entity
 public class GarbageData {
-    //主键自增
-    @PrimaryKey(autoGenerate = true)
+
+    @PrimaryKey(autoGenerate = true)//主键自增
     private int _id;
 
     @ColumnInfo(name="stuff_name")

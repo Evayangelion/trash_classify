@@ -11,7 +11,7 @@ import androidx.room.Update;
 import java.util.List;
 
 @Dao //database access object
-public interface GarbageDataDao {
+public interface GarbageDataDAO {
 
     /*@Insert
     void insertData(GarbageData... garbageData);//可以传递多个参数

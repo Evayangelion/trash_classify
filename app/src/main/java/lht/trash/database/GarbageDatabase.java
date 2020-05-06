@@ -28,7 +28,7 @@ public abstract class GarbageDatabase extends RoomDatabase {
         return INSTANCE;
     }
     //返回一个dao
-    public abstract GarbageDataDao getGarbageDataDao();
+    public abstract GarbageDataDAO getGarbageDataDao();
 
     //属性改变 需要版本迁移
     /*private static Migration migration1_2 = new Migration(1,2) {

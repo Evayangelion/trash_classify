@@ -21,15 +21,12 @@ public class MainActivity extends AppCompatActivity {
     private static final int PERMISSIONS_REQUEST = 1;
 
     //要使用viewmodel首先声明一个对象
-    //MyViewModel myViewModel;
     Button bt_login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //创建viewmodel对象
-        //myViewModel= ViewModelProviders.of(this).get(MyViewModel.class);
 
         //权限动态申请
         if (hasPermission()) {

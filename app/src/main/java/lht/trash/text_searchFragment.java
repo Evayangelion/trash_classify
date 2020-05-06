@@ -4,28 +4,23 @@ import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.room.Room;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.CursorAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import lht.trash.database.GarbageData;
+import lht.trash.database.GarbageDataDAO;
+import lht.trash.database.GarbageDatabase;
 
 
 /**
@@ -35,7 +30,7 @@ public class text_searchFragment extends Fragment {
 
     // Required empty public constructor
     GarbageDatabase garbageDatabase;
-    GarbageDataDao garbageDataDao;
+    GarbageDataDAO garbageDataDao;
     //Button buttonQuery;
     TextView textView;
     //输入框对象
@@ -69,7 +64,7 @@ public class text_searchFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         //数据库操作
-        garbageDatabase = Room.databaseBuilder(this.getContext(),GarbageDatabase.class,"garbage_database")
+        garbageDatabase = Room.databaseBuilder(this.getContext(), GarbageDatabase.class,"garbage_database")
                 .allowMainThreadQueries()
                 .build();
         garbageDataDao=garbageDatabase.getGarbageDataDao();
@@ -92,17 +87,17 @@ public class text_searchFragment extends Fragment {
         //设置默认提示文字
         searchView.setQueryHint("输入您想查找的内容");
 
-        //配置监听器
+        //配置搜索框内容监听器
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            //点击搜索按钮时触发
             @Override
+            //点击提交按钮后才触发
             public boolean onQueryTextSubmit(String query) {
-                //此处添加查询开始后的具体时间和方法
                 Toast.makeText(getActivity(),"you choose:" + query,Toast.LENGTH_SHORT).show();
                 return false;
             }
 
             @Override
+            //发生内容改变时触发
             public boolean onQueryTextChange(String newText) {
                 if (TextUtils.isEmpty(newText)) {//如果这个文字等于空
                     return false;
@@ -110,12 +105,9 @@ public class text_searchFragment extends Fragment {
                     Cursor cursor= TextUtils.isEmpty(newText)?null:garbageDataDao.rawSearchGarbage(newText);
                     int t=cursor.getCount();
                     Toast.makeText(getActivity(), ""+t, Toast.LENGTH_SHORT).show();
-
                     setAdapter(cursor);
-
                 }
                 return false;
-
             }
         });
 

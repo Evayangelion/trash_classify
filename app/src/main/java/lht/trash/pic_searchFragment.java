@@ -1,58 +1,34 @@
 package lht.trash;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
-import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraCaptureSession;
-import android.hardware.camera2.CameraCharacteristics;
-import android.hardware.camera2.CameraDevice;
-import android.hardware.camera2.CameraManager;
-import android.hardware.camera2.CaptureRequest;
-import android.hardware.camera2.CaptureResult;
-import android.hardware.camera2.TotalCaptureResult;
-import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.Image;
 import android.media.ImageReader;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 import androidx.room.Room;
 
 import android.util.Log;
 import android.util.Size;
 import android.view.LayoutInflater;
-import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
+import lht.trash.database.GarbageData;
+import lht.trash.database.GarbageDataDAO;
+import lht.trash.database.GarbageDatabase;
 import lht.trash.env.Camera2Proxy;
-import lht.trash.env.CameraUtils;
-import lht.trash.env.ColorConvertUtil;
 import lht.trash.tflite.Classifier;
-import lht.trash.views.AutoFitTextureView;
 import lht.trash.views.Camera2View;
-
-import static android.content.ContentValues.TAG;
 
 
 /**
@@ -74,7 +50,7 @@ public class pic_searchFragment extends Fragment  {
     private TextView picResult;
 
     GarbageDatabase garbageDatabase;
-    GarbageDataDao garbageDataDao;
+    GarbageDataDAO garbageDataDao;
 
     private final TextureView.SurfaceTextureListener mSurfaceTextureListener
             = new TextureView.SurfaceTextureListener() {

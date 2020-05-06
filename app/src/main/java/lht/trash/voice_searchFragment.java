@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import lht.trash.database.GarbageData;
-import lht.trash.database.GarbageDataDao;
+import lht.trash.database.GarbageDataDAO;
 import lht.trash.database.GarbageDatabase;
 
 import static android.content.ContentValues.TAG;
@@ -46,7 +46,7 @@ public class voice_searchFragment extends Fragment {
     TextView resulttext;
     EditText voice_search_content;
     GarbageDatabase garbageDatabase;
-    GarbageDataDao garbageDataDao;
+    GarbageDataDAO garbageDataDao;
     // 用HashMap存储听写结果
     private HashMap<String, String> mIatResults = new LinkedHashMap<String , String>();
     public voice_searchFragment() {
