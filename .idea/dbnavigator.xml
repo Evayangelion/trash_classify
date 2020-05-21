@@ -23,21 +23,17 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="false" />
-    <loaded-nodes>
-      <connection connection-id="cec4efda-0042-478b-a45f-7e6774b4737c">
-        <schema name="main" object-types="view, table" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="c3610435-732c-491b-9ffe-7587be680396">
-      <console name="Connection" type="STANDARD" schema="main" session="Main">select * from &quot;GarbageData&quot; where id&gt;100</console>
+      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[select * from "GarbageData" where id>100]]></console>
     </connection>
     <connection id="cec4efda-0042-478b-a45f-7e6774b4737c">
       <console name="Connection 1" type="STANDARD" schema="main" session="Main" />
     </connection>
     <connection id="c2b0d70d-4129-4975-b875-832b517bc747">
-      <console name="Connection 2" type="STANDARD" schema="main" session="Main">select * from &quot;GarbageData&quot;</console>
+      <console name="Connection 2" type="STANDARD" schema="main" session="Main"><![CDATA[select * from "GarbageData"]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

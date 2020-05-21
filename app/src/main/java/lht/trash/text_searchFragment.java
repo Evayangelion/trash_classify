@@ -92,8 +92,29 @@ public class text_searchFragment extends Fragment {
             @Override
             //点击提交按钮后才触发
             public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(getActivity(),"you choose:" + query,Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(query)) {//如果这个文字等于空
+                    return false;
+                }else {
+                    GarbageData result = garbageDataDao.searchGarbage(query);
+                    try{
+                        String catg="";
+                        switch (result.getCategory()){
+                            case "1":catg+="可回收垃圾";break;
+                            case "2":catg+="有害垃圾";break;
+                            case "4":catg+="厨余垃圾";break;
+                            case "8":catg+="其他垃圾";break;
+                            case "16":catg+="其他垃圾";break;
+                        }
+                        String showResult=result.getId()+":"+result.getStuff()+"属于"+catg;
+                        textView.setText(showResult);
+                    }catch(Exception e){
+                        textView.setText("暂未收录该垃圾");
+
+                    }
+
+
                 return false;
+            }
             }
 
             @Override
@@ -142,7 +163,8 @@ public class text_searchFragment extends Fragment {
                     searchView.onActionViewCollapsed();
                     listView.setAdapter(null);
                 }catch (Exception e){
-                    //Toast.makeText(getActivity(),"没有这种垃圾",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"没有这种垃圾",Toast.LENGTH_SHORT).show();
+                    textView.setText("暂未收录该垃圾");
                     //String showResult="这东西不用回收，扔了吧";
                     //textView.setText(showResult);
                 }

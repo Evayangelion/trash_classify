@@ -9,16 +9,16 @@
     <fragment
         android:id="@+id/text_searchFragment"
         android:name="lht.trash.text_searchFragment"
-        android:label="文字搜索"
+        android:label="文字查询"
         tools:layout="@layout/fragment_text_search"/>
     <fragment
         android:id="@+id/voice_searchFragment"
         android:name="lht.trash.voice_searchFragment"
-        android:label="语音搜索"
+        android:label="语音查询"
         tools:layout="@layout/fragment_voice_search"/>
     <fragment
         android:id="@+id/pic_searchFragment"
         android:name="lht.trash.pic_searchFragment"
-        android:label="图片搜索"
+        android:label="视频识别"
         tools:layout="@layout/fragment_pic_search"/>
 </navigation>

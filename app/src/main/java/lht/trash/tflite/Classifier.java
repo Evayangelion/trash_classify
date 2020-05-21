@@ -45,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-import lht.trash.env.Logger;
+import lht.trash.utils.Logger;
 
 /** A classifier specialized to label images using TensorFlow Lite. */
 public abstract class Classifier {

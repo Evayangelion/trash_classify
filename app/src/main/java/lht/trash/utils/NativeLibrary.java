@@ -1,4 +1,4 @@
-package lht.trash.env;
+package lht.trash.utils;
 
 public class NativeLibrary {
 

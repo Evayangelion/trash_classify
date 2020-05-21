@@ -1,4 +1,4 @@
-package lht.trash.env;
+package lht.trash.utils;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

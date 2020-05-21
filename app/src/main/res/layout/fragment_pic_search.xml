@@ -14,7 +14,7 @@
             android:id="@+id/pic_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="查询结果"
             app:layout_constraintBottom_toTopOf="@+id/guideline14"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

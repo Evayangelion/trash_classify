@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.TextureView;
 
 
-import lht.trash.env.Camera2Proxy;
+import lht.trash.utils.Camera2Proxy;
 
 public class Camera2View extends TextureView {
 

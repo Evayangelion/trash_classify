@@ -26,7 +26,7 @@ import java.util.List;
 import lht.trash.database.GarbageData;
 import lht.trash.database.GarbageDataDAO;
 import lht.trash.database.GarbageDatabase;
-import lht.trash.env.Camera2Proxy;
+import lht.trash.utils.Camera2Proxy;
 import lht.trash.tflite.Classifier;
 import lht.trash.views.Camera2View;
 
@@ -169,11 +169,6 @@ public class pic_searchFragment extends Fragment  {
         u -= 128;
         v -= 128;
 
-        // This is the floating point equivalent. We do the conversion in integer
-        // because some Android devices do not have floating point in hardware.
-        // nR = (int)(1.164 * nY + 2.018 * nU);
-        // nG = (int)(1.164 * nY - 0.813 * nV - 0.391 * nU);
-        // nB = (int)(1.164 * nY + 1.596 * nV);
         int y1192 = 1192 * y;
         int r = (y1192 + 1634 * v);
         int g = (y1192 - 833 * v - 400 * u);
@@ -236,11 +231,12 @@ public class pic_searchFragment extends Fragment  {
                 final List<Classifier.Recognition> results =
                         classifier.recognizeImage(rgbFrameBitmap,90);
                 Log.d("有没有内容啊",""+results.size());
-                //picResult.setText(results.get(0).getTitle());
                 Log.d("have classifid",results.get(0).getTitle());
+
                 String search=results.get(0).getTitle();
-//Toast.makeText(getActivity(), tap, Toast.LENGTH_SHORT).show();
+
                 GarbageData result = garbageDataDao.searchGarbage(search);
+
                 try{
 
                     String catg="";
@@ -254,9 +250,7 @@ public class pic_searchFragment extends Fragment  {
                     String showResult=result.getId()+":"+result.getStuff()+"属于"+catg;
                     picResult.setText(showResult);
                 }catch (Exception e){
-                    //Toast.makeText(getActivity(),"没有这种垃圾",Toast.LENGTH_SHORT).show();
-                    //String showResult="这东西不用回收，扔了吧";
-                    //textView.setText(showResult);
+                    e.printStackTrace();
                 }
             }
             else{
@@ -265,21 +259,7 @@ public class pic_searchFragment extends Fragment  {
             }
             if (mIsShutter) {
                 mIsShutter = false;
-/*
-                // save yuv data
-                String yuvPath = FileUtil.SAVE_DIR + System.currentTimeMillis() + ".yuv";
-                FileUtil.saveBytes(mYuvBytes, yuvPath);
 
-                // save bitmap data
-                String jpgPath = yuvPath.replace(".yuv", ".jpg");
-                Bitmap bitmap = ColorConvertUtil.yuv420pToBitmap(mYuvBytes, width, height);
-                pic_classify();
-                final List<Classifier.Recognition> results =
-                        classifier.recognizeImage(bitmap,90);
-                Log.d("有没有内容啊",""+results.size());
-
-                Log.d("have classifid",results.get(0).getTitle());
-                FileUtil.saveBitmap(bitmap, jpgPath);*/
             }
 
             // 一定不能忘记close

@@ -1,5 +1,6 @@
 package lht.trash;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -33,6 +34,7 @@ import java.util.LinkedHashMap;
 import lht.trash.database.GarbageData;
 import lht.trash.database.GarbageDataDAO;
 import lht.trash.database.GarbageDatabase;
+import lht.trash.utils.JsonParser;
 
 import static android.content.ContentValues.TAG;
 
@@ -47,6 +49,10 @@ public class voice_searchFragment extends Fragment {
     EditText voice_search_content;
     GarbageDatabase garbageDatabase;
     GarbageDataDAO garbageDataDao;
+
+    //UI修改
+    TextView tv_textlink;
+
     // 用HashMap存储听写结果
     private HashMap<String, String> mIatResults = new LinkedHashMap<String , String>();
     public voice_searchFragment() {
@@ -59,12 +65,6 @@ public class voice_searchFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_voice_search, container, false);
     }
-
-
-
-
-
-
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -106,12 +106,15 @@ public class voice_searchFragment extends Fragment {
         mDialog.setParameter(SpeechConstant.ASR_PTT, "0");//取消标点
         // 若要将UI控件用于语义理解，必须添加以下参数设置，设置之后 onResult回调返回将是语义理解
         // 结果
-        // mDialog.setParameter("asr_sch", "1");
-        // mDialog.setParameter("nlp_version", "2.0");
+         //mDialog.setParameter("asr_sch", "1");
+         //mDialog.setParameter("nlp_version", "2.0");
         //3.设置回调接口
         mDialog.setListener( new MyRecognizerDialogListener()) ;
         //4. 显示dialog，接收语音输入
         mDialog.show() ;
+        tv_textlink=(TextView)mDialog.getWindow().getDecorView().findViewWithTag("textlink");
+        tv_textlink.setText("请说出您想知道的垃圾名称");
+        tv_textlink.getPaint().setFlags(Paint.SUBPIXEL_TEXT_FLAG);
     }
 
     class MyRecognizerDialogListener implements RecognizerDialogListener {
@@ -167,8 +170,8 @@ public class voice_searchFragment extends Fragment {
                 resulttext.setText(showResult);
             }catch (Exception e){
                 Toast.makeText(getActivity(),"没有这种垃圾",Toast.LENGTH_SHORT).show();
-                //String showResult="这东西不用回收，扔了吧";
-                //textView.setText(showResult);
+                String showResult="暂未收录该垃圾";
+                resulttext.setText(showResult);
             }
         }
 

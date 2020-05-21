@@ -1,4 +1,4 @@
-package lht.trash;
+package lht.trash.utils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
